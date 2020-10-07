@@ -3,4 +3,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Ohai from CI overridden trigger."
+    return "Ohai from CI overridden trigger, with an update."
