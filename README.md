@@ -11,3 +11,11 @@ And then
 
 	flask run
 
+To deploy the first time.
+
+	az webapp up --sku S1 --name auswaerts-flask --location SwitzerlandNorth
+
+## Azure Devops Setup
+Created a project. Linked to the github sources. Created a pipeline (use Firefox). Python to Linux Web App on Azure. If all worked well you can select the Web App name, validate and configure.
+
+
