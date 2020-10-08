@@ -1,10 +1,13 @@
 import os.path
 import os
 import requests
+import srfapi
 from requests.auth import HTTPBasicAuth
 
 from flask import Flask, render_template, request, send_from_directory
 app = Flask(__name__)
+
+app.add_url_rule('/otherapi', view_func = srfapi.otherapi)
 
 @app.route("/")
 def hello():
@@ -20,18 +23,7 @@ def envo():
 @app.route("/players")
 def players():
     player_list = ['Marco Wölfli', 'Saidy Janko']
-    return render_template('players.html', player_list = player_list)
-
-@app.route("/otherapi")
-def otherapi():
-    access_token_url = 'https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials'
-    client_id = os.environ.get('SRG_CONSUMER_KEY')
-    client_secret = os.environ.get('SRG_CONSUMER_SECRET')
-    r = requests.post(access_token_url, auth=HTTPBasicAuth(client_id, client_secret))
-    res = r.json()
-    print(res)
-    return res['api_product_list']
-    
+    return render_template('players.html', player_list = player_list)    
 
 @app.route("/js/<path:path>")
 def send_js(path):
