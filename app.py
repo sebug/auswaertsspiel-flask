@@ -1,4 +1,5 @@
 import os.path
+import os
 
 from flask import Flask, render_template, request, send_from_directory
 app = Flask(__name__)
@@ -6,6 +7,13 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Ohai from CI overridden trigger, with an update."
+
+@app.route("/envo")
+def envo():
+    the_message = os.environ.get("ENVO")
+    if (the_message == None):
+        the_message = "Not yet defined"
+    return the_message
 
 @app.route("/players")
 def players():
