@@ -17,7 +17,8 @@ def envo():
 
 @app.route("/players")
 def players():
-    return render_template('players.html')
+    player_list = ['Marco Wölfli', 'Saidy Janko']
+    return render_template('players.html', player_list = player_list)
 
 @app.route("/js/<path:path>")
 def send_js(path):
