@@ -11,7 +11,7 @@ app.add_url_rule('/otherapi', view_func = srfapi.otherapi)
 
 @app.route("/")
 def hello():
-    return "Direkt hier."
+    return "Direkt hier noch einen"
 
 @app.route("/envo")
 def envo():
