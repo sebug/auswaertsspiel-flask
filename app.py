@@ -11,7 +11,7 @@ app.add_url_rule('/otherapi', view_func = srfapi.otherapi)
 
 @app.route("/")
 def hello():
-    return "Ohai from CI overridden trigger, with an update."
+    return "Direkt hier."
 
 @app.route("/envo")
 def envo():
